@@ -189,6 +189,48 @@
             border-top: 1px dashed rgba(0, 0, 0, 0.08);
         }
 
+        /* Logistics items with icons */
+        .logistics-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding-top: 1rem;
+        }
+        .logistics-icon {
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 11px;
+            background: linear-gradient(135deg, #eef3ff 0%, #dde6ff 100%);
+            color: #2752c4;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+        .logistics-icon svg { width: 18px; height: 18px; }
+        .logistics-body { flex: 1; min-width: 0; }
+        .logistics-body strong {
+            display: block;
+            color: #1c2733;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        /* Reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; }
+        }
+
         /* Map */
         .map-container {
             overflow: hidden;
@@ -252,7 +294,7 @@
             </div>
         </section>
         <div class="container">
-            <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="my-3 p-3 bg-white rounded box-shadow reveal">
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="abstract">
                     Abstract
                 </h5>
@@ -293,7 +335,7 @@
                 </div>
             </div>
 
-            <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="my-3 p-3 bg-white rounded box-shadow reveal">
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="attendees">
                     Participants
                 </h5>
@@ -587,7 +629,7 @@
                 </div>
             </div>
 
-            <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="my-3 p-3 bg-white rounded box-shadow reveal">
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="goals">
                     Goals
                 </h5>
@@ -663,7 +705,7 @@
                 </div>
             </div>
 
-            <!-- <div class="my-3 p-3 bg-white rounded box-shadow">
+            <!-- <div class="my-3 p-3 bg-white rounded box-shadow reveal">
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="photo-gallery">
                     Photo Gallery
                 </h5>
@@ -886,7 +928,7 @@
                     </a>
             </div> -->
 
-            <!-- <div class="my-3 p-3 bg-white rounded box-shadow">
+            <!-- <div class="my-3 p-3 bg-white rounded box-shadow reveal">
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="background-reading">
                     Background Reading
                 </h5>
@@ -903,7 +945,7 @@
                 </div>
             </div> -->
 
-            <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="my-3 p-3 bg-white rounded box-shadow reveal">
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="program">
                     Program
                 </h5>
@@ -924,19 +966,20 @@
                 </div>
             </div>
 
-            <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="my-3 p-3 bg-white rounded box-shadow reveal">
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="logistics">
                     Logistics
                 </h5>
 
-                <div class="text-muted pt-3">
-                    <p class="pb-3 mb-0 medium lh-125 border-gray">
-                        <strong class="d-block text-gray-dark">Venue</strong>
+                <div class="logistics-item">
+                    <div class="logistics-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94z"/><path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg></div>
+                    <div class="logistics-body text-muted">
+                        <strong>Venue</strong>
                         The workshop will be held at the Bellairs Research Institute of McGill University in Barbados,
                         which
                         provides the perfect environment for bringing together a small group of people in a quiet and
                         casual setting. See it on the <a href="#map">map</a>.
-                    </p>
+                    </div>
                 </div>
                 <!-- <div class="text-muted pt-3">
                     <p class="pb-3 mb-0 medium lh-125 border-gray">
@@ -947,9 +990,10 @@
                         immigration form up to 72 hours prior to your arrival.
                     </p>
                 </div> -->
-                <div class="text-muted pt-3">
-                    <p class="pb-3 mb-0 medium lh-125 border-gray">
-                        <strong class="d-block text-gray-dark">Airport arrival</strong>
+                <div class="logistics-item">
+                    <div class="logistics-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Z"/></svg></div>
+                    <div class="logistics-body text-muted">
+                        <strong>Airport arrival</strong>
                         Bellairs is about a 40 minute drive from the airport, and as many participants land around the
                         same time on the same date,
                         it often makes sense to share a taxi to the institute.
@@ -964,12 +1008,12 @@
 
                         In all cases, please <i>bring enough USD or BBD to pay for the trip</i>. Many taxis do not
                         accept card payments.
-
-                    </p>
+                    </div>
                 </div>
-                <div class="text-muted pt-3">
-                    <p class="pb-3 mb-0 medium lh-125 border-gray">
-                        <strong class="d-block text-gray-dark">Arriving at Bellairs</strong>
+                <div class="logistics-item">
+                    <div class="logistics-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10H7.465A4.001 4.001 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/><path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></div>
+                    <div class="logistics-body text-muted">
+                        <strong>Arriving at Bellairs</strong>
                         The premises are protected by a gate for which you will receive the password a few days in
                         advance.
                         Once you arrive, you will find your room assignments and get the key from a key box for which we
@@ -982,11 +1026,12 @@
                         but you must <a href=https://www.mcgill.ca/bellairs/facilities/accommodation>contact
                             Bellairs</a> directly to book your accommodation <i>outside the workshop dates</i>.
                         We cannot guarantee availability outside the dates assigned to our group.
-                    </p>
+                    </div>
                 </div>
-                <div class="text-muted pt-3">
-                    <p class="pb-3 mb-0 medium lh-125 border-gray">
-                        <strong class="d-block text-gray-dark">Accommodation</strong>
+                <div class="logistics-item">
+                    <div class="logistics-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/></svg></div>
+                    <div class="logistics-body text-muted">
+                        <strong>Accommodation</strong>
                         The Bellairs research institute is located right on the beach in the Folkestone Marine Park.
                         The facilities are minimalistic, but comfortable, and the beach is right outside the door. Given the
                         limited number of rooms available, 
@@ -995,43 +1040,45 @@
                             href=https://www.mcgill.ca/bellairs/facilities/accommodation>Bellairs website</a> or take a
                         look at the pictures from <a
                             href=https://bclworkshop.github.io/2025/#photo-gallery>last year</a>.
-
-                    </p>
+                    </div>
                 </div>
 
-                <div class="text-muted pt-3">
-                    <p class="pb-3 mb-0 medium lh-125 border-gray">
-                        <strong class="d-block text-gray-dark">Meals</strong>
+                <div class="logistics-item">
+                    <div class="logistics-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M.5 6a.5.5 0 0 0-.488.608l1.652 7.434A2.5 2.5 0 0 0 4.104 16h5.792a2.5 2.5 0 0 0 2.44-1.958l.131-.59a3 3 0 0 0 1.3-5.854l.221-.99A.5.5 0 0 0 13.5 6zM13 12.5a2.01 2.01 0 0 1-.316-.025l.867-3.898A2.001 2.001 0 0 1 13 12.5"/><path d="m4.4.8-.003.004-.014.019a4 4 0 0 0-.204.31 2 2 0 0 0-.141.267c-.026.052-.026.075-.026.077l.002.008c.16.5.602.939 1.16 1.508l.005.005C5.74 3.524 6.5 4.343 6.5 5.5a.5.5 0 0 1-1 0c0-.682-.45-1.21-1.044-1.815C3.946 3.158 3.196 2.41 3.024 1.36c-.157.404.063.97.342 1.55a.5.5 0 0 1-.866.5C2.169 2.756 1.806 1.74 2.4.8Zm3 0-.003.004-.014.019a4 4 0 0 0-.204.31 2 2 0 0 0-.141.267c-.026.052-.026.075-.026.077l.002.008c.16.5.602.939 1.16 1.508l.005.005C8.74 3.524 9.5 4.343 9.5 5.5a.5.5 0 0 1-1 0c0-.682-.45-1.21-1.044-1.815C6.946 3.158 6.196 2.41 6.024 1.36c-.157.404.063.97.342 1.55a.5.5 0 0 1-.866.5C5.169 2.756 4.806 1.74 5.4.8Z"/></svg></div>
+                    <div class="logistics-body text-muted">
+                        <strong>Meals</strong>
                         Buffet-style meals will be available on the first morning for breakfast and every day for dinner. 
                         These will be served in the outdoor classroom from 8-9 am and 6-7 pm, respectively.
                         You will be charged for these according to the number of nights you spend at Bellairs.
                         For the subsequent breakfasts, we will buy groceries based on the preferences of participants, and
                         the amount will be included in the registration fee. Lunch is on your own. 
                         There are plenty of options nearby and we usually walk somewhere as a group.
-                    </p>
+                    </div>
                 </div>
 
-                <div class="text-muted pt-3">
-                    <p class="pb-3 mb-0 medium lh-125 border-gray">
-                        <strong class="d-block text-gray-dark">What to bring</strong>
+                <div class="logistics-item">
+                    <div class="logistics-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1Zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4z"/></svg></div>
+                    <div class="logistics-body text-muted">
+                        <strong>What to bring</strong>
                         In terms of clothing, you should take into consideration that the lecture hall is outdoors and
                         that the weather will be quite hot.
                         Do not forget to bring your bathing suit, beach towel, and snorkeling equipment since Bellairs
                         is located right in front of a coral reef.
                         You should also bring soap, shampoo, sunscreen, and mosquito repellent.
                         Bringing ear plugs is also a good idea if you are a light sleeper as there can be noise from the nearby road or park in the morning.
-                    </p>
+                    </div>
                 </div>
 
-                <div class="text-muted pt-3">
-                    <p class="pb-3 mb-0 medium lh-125 border-gray">
-                        <strong class="d-block text-gray-dark">Currency</strong>
+                <div class="logistics-item">
+                    <div class="logistics-icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16"><path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-1.082-2.466-2.927-2.91l-.75-.176V3.97c.99.149 1.622.724 1.774 1.508H12.5c-.125-1.621-1.494-2.722-3.431-2.793V1.5H8.026v1.198c-1.937.072-3.305 1.173-3.43 2.793h1.092c.152-.785.784-1.36 1.774-1.508v2.466l-.75.176C2.866 6.85 4 7.726 4 9.316zm5.79-.547c.94 0 1.578-.602 1.578-1.448 0-.819-.481-1.336-1.398-1.616l-.18-.046v3.11zM7.5 8.108V5.205c-.917.28-1.398.797-1.398 1.617 0 .847.638 1.448 1.398 1.448z"/></svg></div>
+                    <div class="logistics-body text-muted">
+                        <strong>Currency</strong>
                         Currency: The local currency is the Barbadian Dollar (BBD), but you can pay in USD everywhere (1
                         USD ~ 2 BBD).
                         You can pay by credit card almost everywhere, but it’s safe to carry cash.
                         In fact, it is encouraged to bring some cash with you as many places (e.g. food carts and taxis)
                         do not take payments with cards.
-                    </p>
+                    </div>
                 </div>
 
                 <br>
@@ -1041,10 +1088,10 @@
                         src="https://maps.google.com/maps?q=mcgill+bellairs+holetown&t=&z=13&ie=UTF8&iwloc=&output=embed"
                         frameborder="0" style="border:0" allowfullscreen></iframe>
                 </div>
-                <div class="my-3 p-3 bg-white rounded box-shadow"   >
+                <div class="my-3 p-3 bg-white rounded box-shadow">
                     <img src="img/bellairs-map.png" alt="Map of the Bellairs Research Institute and surrounding area in Holetown, Barbados" width="600" />
                 </div>
-                <div class="my-3 p-3 bg-white rounded box-shadow">
+                <div class="my-3 p-3 bg-white rounded box-shadow reveal">
                     <div class="text-muted pt-3">
                         <p class="text-center pb-1 mb-0 medium lh-125">
                             For questions please contact <a href="mailto:alexandre.drouin@servicenow.com">
@@ -1055,6 +1102,27 @@
 
             </div>
     </main>
+
+    <!-- Reveal-on-scroll (gated by prefers-reduced-motion) -->
+    <script>
+        (function () {
+            var els = document.querySelectorAll('.reveal');
+            var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduceMotion || !('IntersectionObserver' in window)) {
+                els.forEach(function (el) { el.classList.add('is-visible'); });
+                return;
+            }
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        e.target.classList.add('is-visible');
+                        io.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+            els.forEach(function (el) { io.observe(el); });
+        })();
+    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
