@@ -1,3 +1,3 @@
-# Bellairs Workshop on Causality 2025
+# Bellairs Workshop on World Models, Causality, and Agents — 2027
 
-Oops! We included the wrong URL in the invitation email. The workshop website is available at: https://bclworkshop.github.io/2025/
+Source for the 2027 edition's website: https://bclworkshop.github.io/2027/
