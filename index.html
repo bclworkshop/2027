@@ -24,194 +24,210 @@
     </script>
 
     <title>Bellairs Workshop on World Models, Causality, and Agents</title>
-    <link rel="icon" type="img/gif/png" href="img/favicon.png">
+    <link rel="icon" type="image/png" href="img/favicon.png">
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
     <style type="text/css">
-        .text-white-50 {
-            color: rgba(255, 255, 255, 0.5);
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #2c3e50;
+            background-color: #f5f7fb !important;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .bg-color {
-            background-color: #315cd3;
-        }
+        .text-white-50 { color: rgba(255, 255, 255, 0.5); }
+        .text-gray-dark { color: #1c2733; }
+        .bg-color { background-color: #315cd3; }
+        .lh-100 { line-height: 1; }
+        .lh-125 { line-height: 1.35; }
+        .lh-150 { line-height: 1.5; }
 
-        .border-bottom {
-            border-bottom: 1px solid #e5e5e5;
+        /* Navbar */
+        .navbar {
+            background-color: rgba(20, 24, 33, 0.92) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
+        .navbar-brand { font-weight: 700; letter-spacing: 0.5px; }
+        .nav-link { font-weight: 500; transition: color 0.2s ease; }
 
-        .box-shadow {
-            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
-        }
-
-        .lh-100 {
-            line-height: 1;
-        }
-
-        .lh-125 {
-            line-height: 1.25;
-        }
-
-        .lh-150 {
-            line-height: 1.5;
-        }
-
-        .jumbotron-billboard .img {
-            margin-bottom: 0px;
-            color: #fff;
-            background: #fff url("img/purple_beach.jpg") top center no-repeat;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
+        /* Hero */
+        .jumbotron-billboard {
+            position: relative;
+            padding: 7rem 1rem 6rem;
             overflow: hidden;
+            color: #fff;
+        }
+        .jumbotron-billboard .img {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
+            background: #1a2440 url("img/jellyfish2.jpg") center center no-repeat;
+            background-size: cover;
             z-index: 1;
         }
-
-        .jumbotron h1 {
-            margin-top: 0;
-            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-weight: 800;
+        .jumbotron-billboard .img::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.35) 100%);
         }
-
-        .jumbotron p {
-            color: rgb(78, 78, 78);
-            font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            font-weight: 600;
-        }
-
-        .jumbotron {
-            position: relative;
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-
-        .jumbotron .container {
+        .jumbotron-billboard .container {
             position: relative;
             z-index: 2;
         }
-
+        .jumbotron-heading {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55), 0 1px 4px rgba(0, 0, 0, 0.45);
+            margin: 0;
+        }
+        .jumbotron-heading.subtitle {
+            font-weight: 400;
+            opacity: 0.92;
+            letter-spacing: 0.2px;
+        }
         @media screen and (max-width: 768px) {
-            .jumbotron {
-                padding-top: 20px;
-                padding-bottom: 20px;
-            }
+            .jumbotron-billboard { padding: 5rem 1rem 4rem; }
         }
-
-        .jumbotron .graphic {
-            width: 30%;
-            padding-top: 12px;
-        }
-
-        @media screen and (max-width: 768px) {
-            .jumbotron .graphic {
-                width: 70%;
-                padding-top: 12px;
-            }
-        }
-
         @media (max-width: 450px) {
-            .jumbotron-heading {
-                font-size: 30px;
-            }
+            h1.jumbotron-heading { font-size: 28px; }
         }
 
+        /* Sticky-nav-aware anchor offset */
         .anchoritem {
             display: block;
-            padding-top: 4rem;
-            margin-top: -4rem;
+            padding-top: 4.5rem;
+            margin-top: -4.5rem;
         }
 
-        .schedule {
-            background-color: rgba(0, 0, 0, 0.05);
+        /* Section cards */
+        .box-shadow {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+            border-radius: 14px !important;
+        }
+        .box-shadow:hover {
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06), 0 14px 32px rgba(0, 0, 0, 0.08);
+        }
+        .box-shadow h5 {
+            font-weight: 700;
+            color: #1c2733;
+            letter-spacing: -0.2px;
         }
 
+        /* Links */
+        a { color: #2752c4; text-decoration: none; }
+        a:hover { color: #1e3d99; text-decoration: underline; }
+        ul li::marker { color: #315cd3; }
+
+        /* Participants grid */
+        .list-inline { padding-left: 0; margin-bottom: 0; }
         .list-inline li {
             display: inline-block;
-            margin: 5px;
+            margin: 14px;
+            text-align: center;
+            vertical-align: top;
         }
-
+        .list-inline li a {
+            color: #1c2733;
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+        .list-inline li a:hover {
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
         .list-inline img {
             object-fit: cover;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            transition: box-shadow 0.2s ease;
+        }
+        .list-inline li a:hover img {
+            box-shadow: 0 10px 24px rgba(49, 92, 211, 0.28);
+        }
+        .participants-note {
+            color: #6c757d;
+            font-size: 0.9rem;
+            font-style: italic;
+            text-align: center;
+            padding-top: 14px;
+            margin: 18px 0 0;
+            border-top: 1px dashed rgba(0, 0, 0, 0.08);
         }
 
+        /* Map */
         .map-container {
             overflow: hidden;
             padding-bottom: 56.25%;
             position: relative;
             height: 0;
+            border-radius: 12px;
         }
-
         .map-container iframe {
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 100%;
+            left: 0; top: 0;
+            height: 100%; width: 100%;
             position: absolute;
+            border: 0;
         }
     </style>
 </head>
 
-<body data-spy="scroll" data-target="#navbarCollapse" class="bg-light" style="min-height: 75rem;margin-top:3rem;">
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">BCL 2027</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a href="#abstract" class="nav-link">Abstract</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#attendees" class="nav-link">Participants</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#goals" class="nav-link">Goals</a>
-                </li>
-                <!-- <li class="nav-item">
-                    <a href="#photo-gallery" class="nav-link">Photo Gallery</a>
-                </li> -->
-                <li class="nav-item">
-                    <a href="#program" class="nav-link">Program</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#logistics" class="nav-link">Logistics</a>
-                </li>
-                <!-- <li class="nav-item">
-                    <a href="#organizers" class="nav-link">Organizers</a>
-                </li> -->
-            </ul>
+<body data-bs-spy="scroll" data-bs-target="#navbarCollapse" class="bg-light" style="min-height: 75rem;margin-top:3rem;">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">BCL 2027</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a href="#abstract" class="nav-link">Abstract</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#attendees" class="nav-link">Participants</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#goals" class="nav-link">Goals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#program" class="nav-link">Program</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#logistics" class="nav-link">Logistics</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
     <main role="main">
-        <section class="jumbotron text-center jumbotron-billboard">
-            <!--padding-bottom:0;-->
+        <section class="text-center jumbotron-billboard">
             <div class="img"></div>
             <div class="container">
-                <br>
-                <!--
-                <h3 class="jumbotron-heading" style="color: #85929E;">
-		-->
-                <h3 class="jumbotron-heading" style="color: #FFFFFF;">
+                <h3 class="jumbotron-heading subtitle text-white">
                     Welcome to the Fifth
                 </h3>
-                <br>
-                <h1 class="jumbotron-heading" style="color: #FFFFFF;">
+                <h1 class="jumbotron-heading text-white mt-3 mb-4">
                     Bellairs Workshop on World Models, Causality, and Agents
                 </h1>
-                <br>
-                <h4 class="jumbotron-heading" style="color: #FFFFFF; ">
+                <h4 class="jumbotron-heading subtitle text-white">
                     February 26 - March 5, 2027
                 </h4>
-                <br>
             </div>
         </section>
         <div class="container">
@@ -219,8 +235,8 @@
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="abstract">
                     Abstract
                 </h5>
-                <div class="media text-muted pt-3">
-                    <p class="media-body pb-1 mb-0 medium lh-125">
+                <div class="text-muted pt-3">
+                    <p class="pb-1 mb-0 medium lh-125">
                         AI agents that act in the real world are rapidly moving from prototypes to deployed systems, yet a fundamental
                         challenge remains: how can an agent reliably predict the consequences of its actions? This is, at its core, a
                         causal question. World models sit at the center of this convergence; a world model is essentially a causal model
@@ -231,8 +247,8 @@
                         too complex for trial and error?
                     </p>
                 </div>
-                <div class="media text-muted pt-3">
-                    <p class="media-body pb-1 mb-0 medium lh-125">
+                <div class="text-muted pt-3">
+                    <p class="pb-1 mb-0 medium lh-125">
                         This workshop brings together researchers working on causality, world models, and agentic AI to explore these
                         questions and their intersections.
                     </p>
@@ -249,8 +265,8 @@
                         <li>Safe decision-making under causal uncertainty</li>
                     </ul>
                 </div>
-                <div class="media text-muted pt-3">
-                    <p class="media-body pb-1 mb-0 medium lh-125">
+                <div class="text-muted pt-3">
+                    <p class="pb-1 mb-0 medium lh-125">
                         This is a sequel to the <a href="https://www.cs.mcgill.ca/~denis/barbados2022/index.html">2022</a>, <a href="https://bclworkshop.github.io/2023/">2023</a>, <a href="https://bclworkshop.github.io/2024/">2024</a>, and <a href="https://bclworkshop.github.io/2025/">2025</a> workshops.
                     </p>
                 </div>
@@ -260,9 +276,7 @@
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="attendees">
                     Participants
                 </h5>
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=007bff&fg=007bff&size=1" alt=""
-                        class="mr-2 rounded" />
+                <div class="text-muted pt-3">
                     <div class="d-flex flex-column w-100">
                         <ul class="list-inline" style="line-height: 25px; text-align: center;">
 
@@ -308,12 +322,12 @@
                                 </a> <br />(Nera, Mila)
                             </li>
 
-                            <!-- <li>
+                            <li>
                                 <a href="https://www.alexdrouin.com" target="_blank"> <b><img src="people/alex.jpg"
                                             class="rounded-circle" width="150" height="150" /><br />Alexandre
                                         Drouin*</b>
                                 </a> <br />(ServiceNow, Mila)
-                            </li> -->
+                            </li>
 
                             <li>
                                 <a href="https://nouhadziri.github.io/" target="_blank"> <b><img src="people/nouha.jpg"
@@ -465,12 +479,12 @@
                                         Sridhar</b></a> <br />(Mila)
                             </li>
 
-                            <!-- <li>
+                            <li>
                                 <a href="https://scholar.google.ca/citations?user=LJ7gHkQAAAAJ" target="_blank"><b><img
                                             src="people/perouz.jpg" class="rounded-circle" width="150"
                                             height="150" /><br />Perouz
-                                        Taslakian*</b></a> <br />(ServiceNow)
-                            </li> -->
+                                        Taslakian*</b></a> <br />(ServiceNow, Mila)
+                            </li>
 
                             <!-- <li>
                                 <a href="http://www.victorveitch.com/" target="_blank"><b><img src="people/veitch.jpg"
@@ -543,8 +557,11 @@
                             </li> -->
 
                         </ul>
-
-                        * Organizers
+                        <p class="participants-note">
+                            <span>* Organizers</span>
+                            <span class="mx-2">&middot;</span>
+                            <span>More participants to be announced as invitations are confirmed.</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -553,8 +570,8 @@
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="goals">
                     Goals
                 </h5>
-                <div class="media text-muted pt-3 pb-0 mb-0">
-                    <p class="media-body pb-0 mb-0 medium  lh-125 border-gray">
+                <div class="text-muted pt-3 pb-0 mb-0">
+                    <p class="pb-0 mb-0 medium lh-125 border-gray">
                         The Bellairs Workshop on Causality is a gathering of researchers interested in and actively
                         working
                         on various aspects of causality. The workshop is meant to be a week filled with discussions,
@@ -563,9 +580,7 @@
                         we would consider that the workshop has fulfilled its goal if every attendee returns home:
                     </p>
                 </div>
-                <div class="media text-muted pt-0 mt-0">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
+                <div class="text-muted pt-0 mt-0">
                     <ul>
                         <li class="mt-2">
                             having learned of new sub-areas to explore,
@@ -585,10 +600,8 @@
                     </ul>
                 </div>
 
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium  lh-125 border-gray">
+                <div class="text-muted pt-3">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray">
                         <strong class="d-block text-gray-dark">Guidelines for open questions</strong><br />
                         As our focus for this workshop is the development of new ideas and collaborations, we have
                         planned
@@ -604,17 +617,13 @@
                     </p>
                 </div>
 
-                <div class="media text-muted pt-0 mb-0">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium lh-125 border-gray">
+                <div class="text-muted pt-0 mb-0">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray">
                         In order to facilitate the sharing of open questions and the exchange of ideas, we ask that
                         participants observe the <u>following guidelines</u>:
                     </p>
                 </div>
-                <div class="media text-muted pt-0 lh-125">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
+                <div class="text-muted pt-0 lh-125">
                     <ul>
                         <li>
                             Any open problem discussed at the workshop is not to be shared widely with the public
@@ -637,7 +646,7 @@
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="photo-gallery">
                     Photo Gallery
                 </h5>
-                <div id="carouselPhotos" class="carousel slide" data-ride="carousel">
+                <div id="carouselPhotos" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img class="d-block w-100" src="photos/group_photo.png" alt="photo">
@@ -846,13 +855,13 @@
                             <img class="d-block w-100" src="photos/41.png" alt="photo">
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselPhotos" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#carouselPhotos" role="button" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
+                        <span class="visually-hidden">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselPhotos" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#carouselPhotos" role="button" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
+                        <span class="visually-hidden">Next</span>
                     </a>
             </div> -->
 
@@ -860,12 +869,10 @@
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="background-reading">
                     Background Reading
                 </h5>
-                <div class="media text-muted pt-3">
+                <div class="text-muted pt-3">
                     Participants are encouraged to consult the following references in advance of the workshop:
                 </div>
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
+                <div class="text-muted pt-3">
                     <ul>
                         <li>Schölkopf, Bernhard, et al. "Toward causal representation learning." Proceedings of the IEEE
                             109.5 (2021): 612-634. <a href="https://ieeexplore.ieee.org/abstract/document/9363924"
@@ -879,10 +886,8 @@
                 <h5 class="border-bottom border-gray pb-2 mb-0 anchoritem" id="program">
                     Program
                 </h5>
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium  lh-125 border-gray">
+                <div class="text-muted pt-3">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray">
                         The workshop will take place from February 26 to March 5, 2027.
                         Each day will consist of morning lectures on relevant topics (9:00-12:00), afternoons will be left open for
                         collaboration and discussion, and evenings will be reserved for collaborative work towards open problems
@@ -891,10 +896,8 @@
                     </p>
                 </div>
 
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium lh-125 border-gray text-center font-italic">
+                <div class="text-muted pt-3">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray text-center fst-italic">
                         Detailed schedule TBA.
                     </p>
                 </div>
@@ -905,10 +908,8 @@
                     Logistics
                 </h5>
 
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium  lh-125 border-gray">
+                <div class="text-muted pt-3">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray">
                         <strong class="d-block text-gray-dark">Venue</strong>
                         The workshop will be held at the Bellairs Research Institute of McGill University in Barbados,
                         which
@@ -916,10 +917,8 @@
                         casual setting. See it on the <a href="#map">map</a>.
                     </p>
                 </div>
-                <!-- <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium  lh-125 border-gray">
+                <!-- <div class="text-muted pt-3">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray">
                         <strong class="d-block text-gray-dark">Requirements to enter Barbados</strong>
                         The most reliable source of information is <a
                             href=https://www.visitbarbados.org/covid-19-travel-guidelines-2022>here</a>.
@@ -927,10 +926,8 @@
                         immigration form up to 72 hours prior to your arrival.
                     </p>
                 </div> -->
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium  lh-125 border-gray">
+                <div class="text-muted pt-3">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray">
                         <strong class="d-block text-gray-dark">Airport arrival</strong>
                         Bellairs is about a 40 minute drive from the airport, and as many participants land around the
                         same time on the same date,
@@ -949,10 +946,8 @@
 
                     </p>
                 </div>
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium  lh-125 border-gray">
+                <div class="text-muted pt-3">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray">
                         <strong class="d-block text-gray-dark">Arriving at Bellairs</strong>
                         The premises are protected by a gate for which you will receive the password a few days in
                         advance.
@@ -968,10 +963,8 @@
                         We cannot guarantee availability outside the dates assigned to our group.
                     </p>
                 </div>
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium  lh-125 border-gray">
+                <div class="text-muted pt-3">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray">
                         <strong class="d-block text-gray-dark">Accommodation</strong>
                         The Bellairs research institute is located right on the beach in the Folkestone Marine Park.
                         The facilities are minimalistic, but comfortable, and the beach is right outside the door. Given the
@@ -985,10 +978,8 @@
                     </p>
                 </div>
 
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium  lh-125 border-gray">
+                <div class="text-muted pt-3">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray">
                         <strong class="d-block text-gray-dark">Meals</strong>
                         Buffet-style meals will be available on the first morning for breakfast and every day for dinner. 
                         These will be served in the outdoor classroom from 8-9 am and 6-7 pm, respectively.
@@ -999,10 +990,8 @@
                     </p>
                 </div>
 
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium  lh-125 border-gray">
+                <div class="text-muted pt-3">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray">
                         <strong class="d-block text-gray-dark">What to bring</strong>
                         In terms of clothing, you should take into consideration that the lecture hall is outdoors and
                         that the weather will be quite hot.
@@ -1013,10 +1002,8 @@
                     </p>
                 </div>
 
-                <div class="media text-muted pt-3">
-                    <img data-src="holder.js/32x32?theme=thumb&bg=e83e8c&fg=e83e8c&size=1" alt=""
-                        class="mr-2 rounded" />
-                    <p class="media-body pb-3 mb-0 medium  lh-125 border-gray">
+                <div class="text-muted pt-3">
+                    <p class="pb-3 mb-0 medium lh-125 border-gray">
                         <strong class="d-block text-gray-dark">Currency</strong>
                         Currency: The local currency is the Barbadian Dollar (BBD), but you can pay in USD everywhere (1
                         USD ~ 2 BBD).
@@ -1037,8 +1024,8 @@
                     <img src="img/bellairs-map.png" width="600" />
                 </div>
                 <div class="my-3 p-3 bg-white rounded box-shadow">
-                    <div class="media text-muted pt-3">
-                        <p class="text-center media-body pb-1 mb-0 medium lh-125">
+                    <div class="text-muted pt-3">
+                        <p class="text-center pb-1 mb-0 medium lh-125">
                             For questions please contact <a href="mailto:alexandre.drouin@servicenow.com">
                                 Alexandre Drouin</a> or <a href="mailto:perouz@gmail.com">Perouz Taslakian</a>
                         </p>
@@ -1051,12 +1038,8 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 
 </html>
