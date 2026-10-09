@@ -13,8 +13,8 @@
         h1 { font-size: 1.6rem; margin: 0 0 6px; }
         header p { margin: 0; color: #666; }
         header a { color: #6f42c1; }
-        .grid { max-width: 1200px; margin: 0 auto; padding: 8px 16px 40px; columns: 4 220px; column-gap: 8px; }
-        .grid img { width: 100%; display: block; margin-bottom: 8px; border-radius: 4px; cursor: zoom-in; background: #eee; }
+        .grid { max-width: 1200px; margin: 0 auto; padding: 8px 16px 40px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+        .grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 4px; cursor: zoom-in; background: #eee; }
         .viewer { position: fixed; inset: 0; background: rgba(0, 0, 0, .92); display: none; align-items: center; justify-content: center; z-index: 10; }
         .viewer.open { display: flex; }
         .viewer img { max-width: 92vw; max-height: 86vh; object-fit: contain; }
